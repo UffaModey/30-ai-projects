@@ -22,13 +22,10 @@ if uploaded_file:
     st.subheader("Raw Data Preview")
     st.dataframe(df.head())
 
-
     df = clean_data(df)
-
 
     st.subheader("Cleaned Data Preview")
     st.dataframe(df.head())
-
 
     # Date Range Filter
     if "date" in df.columns:
@@ -36,40 +33,33 @@ if uploaded_file:
         min_date = df["date"].min()
         max_date = df["date"].max()
 
-
     date_range = st.date_input("Select Date Range", [min_date, max_date])
-
 
     if len(date_range) == 2:
         start, end = date_range
-        df = df[(df["date"] >= pd.to_datetime(start)) & (df["date"] <= pd.to_datetime(end))]
-
+        df = df[
+            (df["date"] >= pd.to_datetime(start)) & (df["date"] <= pd.to_datetime(end))
+        ]
 
     # KPIs
     kpis = calculate_kpis(df)
 
-
     st.subheader("Key Metrics")
     col1, col2, col3 = st.columns(3)
-
 
     col1.metric("Total Revenue", f"${kpis['total_revenue']:,}")
     col2.metric("Top Product", kpis["top_product"])
     col3.metric("Total Transactions", kpis["total_transactions"])
 
-
     # Charts
     st.subheader("Sales Trend")
     st.plotly_chart(plot_sales_trend(df), use_container_width=True)
 
-
     st.subheader("Top Products")
     st.plotly_chart(plot_top_products(df), use_container_width=True)
 
-
     st.subheader("Sales by Category")
     st.plotly_chart(plot_category_pie(df), use_container_width=True)
-
 
     st.subheader("Sales Heatmap")
     st.plotly_chart(plot_sales_heatmap(df), use_container_width=True)

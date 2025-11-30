@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.dropna(how="all") # Remove empty rows
+    df = df.dropna(how="all")  # Remove empty rows
     df.columns = [c.lower().strip().replace(" ", "_") for c in df.columns]
 
     # Convert numeric columns

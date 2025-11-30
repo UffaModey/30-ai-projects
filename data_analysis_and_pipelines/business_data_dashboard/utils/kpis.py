@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def calculate_kpis(df: pd.DataFrame) -> dict:
     kpis = {}
 
