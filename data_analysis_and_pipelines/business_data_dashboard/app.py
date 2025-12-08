@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-from utils.cleaning import clean_data
-from utils.kpis import calculate_kpis
-from utils.charts import (
+from data_analysis_and_pipelines.business_data_dashboard.utils.cleaning import clean_data
+from data_analysis_and_pipelines.business_data_dashboard.utils.kpis import calculate_kpis
+from data_analysis_and_pipelines.business_data_dashboard.utils.charts import (
     plot_sales_trend,
     plot_top_products,
     plot_category_pie,
