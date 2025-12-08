@@ -31,16 +31,16 @@ if uploaded_file:
     st.subheader("Cleaned Data Preview")
     st.dataframe(df.head())
 
-    min_date = 0
-    max_date = 0
+    MIN_DATE = 0
+    MAX_DATE = 0
 
     # Date Range Filter
     if "date" in df.columns:
         df["date"] = pd.to_datetime(df["date"])
-        min_date = df["date"].min()
-        max_date = df["date"].max()
+        MIN_DATE = df["date"].min()
+        MAX_DATE = df["date"].max()
 
-    date_range = st.date_input("Select Date Range", [min_date, max_date])
+    date_range = st.date_input("Select Date Range", [MIN_DATE, MAX_DATE])
 
     if len(date_range) == 2:
         start, end = date_range
