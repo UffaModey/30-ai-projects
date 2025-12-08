@@ -1,3 +1,4 @@
+"""Utility functions for calculating business KPIs from a pandas DataFrame."""
 import pandas as pd
 
 
