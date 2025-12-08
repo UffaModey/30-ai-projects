@@ -1,7 +1,8 @@
 import pandas as pd
 
+
 def calculate_kpis(df: pd.DataFrame) -> dict:
-    """ calculate kpis"""
+    """calculate kpis"""
     kpis = {}
 
     if "revenue" in df.columns:

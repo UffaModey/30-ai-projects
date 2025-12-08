@@ -2,8 +2,8 @@ import pandas as pd
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    """ clean data"""
-    df = df.dropna(how="all") # Remove empty rows
+    """clean data"""
+    df = df.dropna(how="all")  # Remove empty rows
     df.columns = [c.lower().strip().replace(" ", "_") for c in df.columns]
 
     # Convert numeric columns
