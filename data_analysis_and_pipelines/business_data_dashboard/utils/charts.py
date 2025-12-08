@@ -3,6 +3,7 @@ import pandas as pd
 
 # 1. Sales Trend
 def plot_sales_trend(df: pd.DataFrame):
+    """ plot sales trend"""
     if "date" not in df.columns or "revenue" not in df.columns:
         return px.line(title="Sales Trend (No valid date or revenue data)")
 
@@ -12,6 +13,7 @@ def plot_sales_trend(df: pd.DataFrame):
 
 # 2. Top Products
 def plot_top_products(df: pd.DataFrame):
+    """ plot top products"""
     if "product" not in df.columns or "revenue" not in df.columns:
         return px.bar(title="Top Products (Missing product or revenue column)")
 
@@ -21,6 +23,7 @@ def plot_top_products(df: pd.DataFrame):
 
 # 3. Category Pie Chart
 def plot_category_pie(df: pd.DataFrame):
+    """ plot category pie"""
     if "category" not in df.columns or "revenue" not in df.columns:
         return px.pie(title="Category Breakdown (Missing category or revenue column)")
 
@@ -30,6 +33,7 @@ def plot_category_pie(df: pd.DataFrame):
 
 # 4. Heatmap: Sales by Day & Hour
 def plot_sales_heatmap(df: pd.DataFrame):
+    """ plot sales heatmap"""
     if "date" not in df.columns or "revenue" not in df.columns:
         return px.imshow([[0]], title="Heatmap Unavailable")
 
