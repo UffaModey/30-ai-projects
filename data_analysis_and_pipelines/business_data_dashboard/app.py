@@ -31,6 +31,9 @@ if uploaded_file:
     st.subheader("Cleaned Data Preview")
     st.dataframe(df.head())
 
+    min_date = 0
+    max_date = 0
+
     # Date Range Filter
     if "date" in df.columns:
         df["date"] = pd.to_datetime(df["date"])
